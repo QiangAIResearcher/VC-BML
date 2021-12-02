@@ -1,0 +1,142 @@
+{
+    "dataset_ls": ["omniglot", "cifar_fs", "mini_imagenet", "vggflowers"],
+    "run_dir": "./runs/amvi_seqdataset",
+    "data_dir": "../data",
+    "split_folder": "split",
+    "device": "cuda:0",
+    "k": [0,1,2,3,4,5],
+    "alpha": 1,
+    "cuda_img_tensor": true,
+    "net": "ConvNetMonteCarlo",
+    "net_kwargs": {
+        "num_way": 5,
+        "num_in_ch": 3,
+        "num_conv_layer": 4,
+        "num_filter": 64,
+        "kernel_size": 3,
+        "maxpool_kernel_size": 2,
+        "stride": 1,
+        "padding": 1,
+        "fc_in_dim": 1,
+        "num_fc_layer": 0,
+        "num_fc_hidden": 5
+    },
+    "seqtask": false,
+    "num_dataset_to_run": 4,
+    "completed_task_idx": null,
+    "completed_exp_name": null,
+    "num_mc_sample": 5,
+    "sample_batch": true,
+    "is_grayscale": false,
+    "img_resize": 28,
+    "omniglot": {
+        "num_shot": 5,
+        "num_query_per_cls": 15,
+        "supercls": false,
+        "num_task_per_itr": 32,
+        "outer_kl_scale": 0.05,
+        "resize_interpolation": "BILINEAR",
+        "img_normalise": true,
+        "task_by_supercls": false,
+        "nstep_outer": 5000,
+        "nstep_inner": 1,
+        "lr_inner": 0.1,
+        "first_order": false,
+        "optim_outer_name": "Adam",
+        "optim_outer_kwargs": {
+            "lr": 0.001
+        },
+        "lr_sch_outer_name": null,
+        "lr_sch_outer_kwargs": {},
+        "num_eval_task": 100,
+        "eval_task_by_supercls": false,
+        "eval_per_num_iter": 100,
+        "nstep_inner_eval": 3,
+        "eval_supercls": false
+    },
+    "vggflowers": {
+        "num_shot": 5,
+        "num_query_per_cls": 15,
+        "supercls": false,
+        "num_task_per_itr": 32,
+        "outer_kl_scale": 1.0,
+        "resize_interpolation": "BILINEAR",
+        "img_normalise": true,
+        "task_by_supercls": false,
+        "nstep_outer": 5000,
+        "nstep_inner": 3,
+        "lr_inner": 0.05,
+        "first_order": false,
+        "optim_outer_name": "Adam",
+        "optim_outer_kwargs": {
+            "lr": 0.0001
+        },
+        "lr_sch_outer_name": null,
+        "lr_sch_outer_kwargs": {
+            "step_size": 1000,
+            "gamma": 0.1
+        },
+        "num_eval_task": 100,
+        "eval_task_by_supercls": false,
+        "eval_per_num_iter": 100,
+        "nstep_inner_eval": 5,
+        "eval_supercls": false
+    },
+    "mini_imagenet": {
+        "num_shot": 5,
+        "num_query_per_cls": 15,
+        "supercls": false,
+        "num_task_per_itr": 32,
+        "outer_kl_scale": 1.0,
+        "resize_interpolation": "BILINEAR",
+        "img_normalise": true,
+        "task_by_supercls": false,
+        "nstep_outer": 5000,
+        "nstep_inner": 3,
+        "lr_inner": 0.1,
+        "first_order": false,
+        "optim_outer_name": "Adam",
+        "optim_outer_kwargs": {
+            "lr": 0.0001
+        },
+        "lr_sch_outer_name": null,
+        "lr_sch_outer_kwargs": {
+            "step_size": 2500,
+            "gamma": 0.1
+        },
+        "num_eval_task": 100,
+        "eval_task_by_supercls": false,
+        "eval_per_num_iter": 100,
+        "nstep_inner_eval": 5,
+        "eval_supercls": false
+    },
+    "cifar_fs": {
+        "num_shot": 5,
+        "num_query_per_cls": 15,
+        "supercls": false,
+        "num_task_per_itr": 32,
+        "outer_kl_scale": 0.005,
+        "resize_interpolation": "BILINEAR",
+        "img_normalise": true,
+        "task_by_supercls": false,
+        "nstep_outer": 5000,
+        "nstep_inner": 5,
+        "lr_inner": 0.1,
+        "first_order": false,
+        "optim_outer_name": "Adam",
+        "optim_outer_kwargs": {
+            "lr": 0.001
+        },
+        "lr_sch_outer_name": null,
+        "lr_sch_outer_kwargs": {
+            "step_size": 2500,
+            "gamma": 0.1
+        },
+        "num_eval_task": 100,
+        "eval_task_by_supercls": false,
+        "eval_per_num_iter": 100,
+        "nstep_inner_eval": 10,
+        "eval_supercls": false
+    }
+    
+}
